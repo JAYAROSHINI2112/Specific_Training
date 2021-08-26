@@ -1,0 +1,57 @@
+/*Emma wants to gift a bouquet to her father on his birthday and asks for help from her mother 
+Rosy.Rosy gives N flower sticks numbered 1 to N to Emma and tells her to arrange it in the 
+bouquet in a particular order.She asks her to arrange the first K flower sticks in an order 
+of their increasing length and the remaining sticks in an order of their dereasing length.
+Write an algorithm to find the final arrangement of the flower sticks in which Emma gifted 
+the bouquet to her father.
+ 
+ Input:
+ 8 
+ 3 
+ 7 9 4 3 45 76 1 2  
+ Output:
+ 1 2 3 76 45 9 7 4 
+ 
+ Input format:
+ The input to the function/method consists of three aguments num,an integer representing the 
+ number of flower sticks(N) random ,an integer representing the number K given by the 
+ Rosy to Emma sticks,a list of integers representing the length of the flower sticks.
+ Output format:
+ Return a list of integers representing the finalpattern of the flower sticks in 
+ which Emma gift the bouquet to her father.
+// n=8
+ ind 0 1 2 3 4  5  6  7 
+ arr 2 4 6 8 10 12 14 15 
+// k=4
+ 2 4 6 8 15 14 12 10
+ 1.Sorting using Bubble Sort 
+ 2.Print upto K value as it is 
+ 3.Print in reverse until K (or) sort in descending order*/
+ 
+ #include<stdio.h>
+ int main()
+ {
+     int n,i,j,k;
+     scanf("%d",&n);
+     int arr[n];
+     scanf("%d",&k);
+     for(i=0;i<n;i++)         0 1 2 3 4 
+        scanf("%d",&arr[i]);//5 4 1 2 3||4 5 1 2 3 
+     for(i=0;i<n;i++)//5
+     {
+         for(j=i+1;j<n;j++)//4
+         {
+             if(arr[i]>arr[j])//5>4 
+             {
+                 int temp=arr[i];
+                 arr[i]=arr[j];
+                 arr[j]=temp;
+             }
+         }
+     }
+     for(i=0;i<k;i++)
+        printf("%d ",arr[i]);
+     for(i=n-1;i>=k;i--)
+        printf("%d ",arr[i]);
+ }
+ 
