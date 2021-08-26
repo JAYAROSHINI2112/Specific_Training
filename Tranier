@@ -1,0 +1,64 @@
+
+
+
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    float t1,t2,t3,i,j,o1=0,o2=0,o3=0;
+    int a1,a2,a3;
+    
+        for(j = 0; j < 3; j++)
+         {
+             scanf("%f %f %f",&t1,&t2,&t3);
+             if(t1 > 1 && t1<=100)
+               o1 +=t1;
+             if(t2 > 1 && t2<=100)  
+               o2 += t2;
+             if(t3 > 1 && t3<=100) 
+               o3 += t3;
+         }
+         
+        a1 = o1 / 3;
+        a2 = o2 / 3;
+        a3 = o3 / 3;
+       // printf("%d %d %d\n",a1,a2,a3);
+    if(a1 >= a2 && a1 >= a3)
+    {
+        if(a1 == a2)
+         printf("Average - %d\n Trainer 1 and Trainer 2",a1);
+        else if(a1 == a3) 
+         printf("Average - %d\n  Trainer 1 and Trainer 3",a1);
+        else 
+        
+         printf("%d Trainer 1",a1);
+    }
+    else if(a2 >= a1 && a2 >= a3)
+    {
+        if(a1 == a2)
+         printf("Average - %d\n Trainer 1 and Trainer 2",a2);
+        else if(a2 == a3) 
+         printf("Average - %d\n Trainer 2 and Trainer 3",a2);
+        else 
+           printf("Average - %d\n Trainer 2",a2);
+    }
+    else
+    {
+        if(a3 == a2)
+           printf("Average - %d\nTrainer 2 and Trainer 3",a3);
+        else if(a3 == a1)
+           printf("Average - %d\nTrainer 1 and Trainer 3",a3);
+        else   
+           printf("Average - %d\n Trainer 3",a3);
+    }
+     
+    return 0;
+}
