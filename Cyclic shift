@@ -1,0 +1,54 @@
+/* 
+
+
+
+You have to encrypt a non-empty string phrase .the encryption adds a “cyclic shift” to each letter. The value of this “cyclic shift” is
+determined by the position of the letter from the end of its word. The shift value for each letter of a word is its index value (starting
+from 0) from the right most character of the word
+For example, the shift values in “yum feed” are
+Yum : m -> 0 , u -> 1 , y -> 2
+Feed: d -> 0 , e -> 1 , e -> 2 , f -> 3
+Which gives the encryption avm igfd
+Here adding the shift with value 0 to letter ‘m’ gives ‘m’ + 0 = m , value 1 to ‘u’ gives ‘u’+1 = ‘v’ , value 2 to ‘u’ gives ‘y’ + 2 = a and so
+on.
+Note that upon reaching the end of the alphabet, the shift wraps around to the beginning (i.e, the shift value for ‘y’ as shown above
+is ‘a’)
+
+a-97    z-122
+
+yum feed
+210 3210  
+
+
+d+0--> 100+0 -->100
+e+1--> 102   --> f
+
+
+
+y+2 -->121+2 --> 123-26   -->  97(a) 
+
+
+avm igfd
+*/
+
+#include<stdio.h> 
+int main()
+{
+    char str[100];
+    int val=0,len,i;
+    scanf("%[^\n]s",str); 
+    for(len=0;str[len]!='\0';len++);  
+    for(i=len-1;i>=0;i--)  
+    {
+        if(str[i]!=' ')
+        {
+            str[i]=str[i]+val;
+            if(str[i]>122)
+               str[i]=str[i]-26; 
+            val++;
+        }
+        else  
+          val=0;
+    }
+    printf("%s",str);
+}
