@@ -1,0 +1,17 @@
+
+#include <stdio.h>
+
+int main()
+{
+    int arr,i,temp,dig;
+    scanf("%d",&arr);
+    temp = arr;
+    while(temp)
+    {
+        dig = temp % 10;
+        printf("%d",dig);
+        temp = temp / 10;
+    }
+
+    return 0;
+}
