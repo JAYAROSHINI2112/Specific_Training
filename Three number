@@ -1,0 +1,46 @@
+#include<stdio.h> 
+int second(int n)  //n=123 
+{
+    int l=0,s=0,rem; 
+    while(n!=0)  //1!=0
+    {
+        rem=n%10;  //rem=1      
+        if(l<rem)  //3<1   
+        {
+            s=l;  //s=0 
+            l=rem; //l=3 
+        }
+        else if(rem>=s)  //1>=2 
+        {
+            s=rem; //s=2 
+        }
+        n=n/10; //0 
+    }
+return s;
+    
+}
+int first(int n)
+{
+    
+    int m=-1,rem; 
+    while(n!=0)
+    {
+      rem=n%10; 
+      if(rem>m)
+      {
+          m=rem;
+      }
+      n=n/10;
+    }
+    
+  return m;  
+}
+int main() 
+{
+    int n1,n2,n3; 
+    scanf("%d %d %d",&n1,&n2,&n3);  //123 456 798 
+    int s1,s2; 
+    s1=first(n1)+first(n2)+first(n3);   //s1=18 
+    s2=second(n1)+second(n2)+second(n3);  //s2=15 
+    printf("%d",s1-s2);
+}
